@@ -1,4 +1,4 @@
-import { cycleSchema } from "../../schemas/cycleShema";
+import { cycleSchema } from "../../schemas/cycleSchema";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { TextField, Box, Button, MenuItem } from "@mui/material";

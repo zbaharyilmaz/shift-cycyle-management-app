@@ -18,7 +18,6 @@ const CyclesPage = () => {
       <Box
         sx={{
           display: "flex",
-          flexDirection: "column",
           flexDirection: { xs: "column", md: "row", lg: "row" },
           gap: 4,
           justifyContent: "center",

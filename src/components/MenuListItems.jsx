@@ -9,16 +9,16 @@ import { btnStyle, selectedStyle } from "../styles/buttonStyles";
 
 const links = [
   {
-    title: "ANASAYFA",
+    title:"ANASAYFA",
     url: "/",
-  },
-  {
-    title: "VARDİYALAR",
-    url: "/shifts",
   },
   {
     title: "DÖNGÜLER",
     url: "/cycles",
+  },
+  {
+    title: "VARDİYALAR",
+    url: "/shifts",
   },
 ];
 
