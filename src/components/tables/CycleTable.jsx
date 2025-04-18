@@ -11,30 +11,37 @@ import {
 import { useCycles } from "../../hooks/useCycles";
 
 const CycleTable = () => {
-  const {
-    cycles,
-    isLoading,
-    isError,
-    deleteCycleMutation,
-  } = useCycles();
-
-  if (isLoading) return <p>Yükleniyor...</p>;
-  if (isError) return <p>Hata oluştu, veriler getirilemedi.</p>;
-
+  const { cycles, isLoading, isError, deleteCycleMutation } = useCycles();
   const handleDelete = (id) => {
     deleteCycleMutation.mutate(id);
   };
 
+  if (isLoading) return <p>Yükleniyor...</p>;
+  if (isError) return <p>Hata oluştu, veriler getirilemedi.</p>;
+
   return (
-    <TableContainer component={Paper} sx={{ mt: 4 }}>
+    <TableContainer
+      component={Paper}
+      sx={{ mt: 4, overflowX: "auto", maxWidth: "100%" }}
+    >
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell><strong>Döngü Numarası</strong></TableCell>
-            <TableCell><strong>İş</strong></TableCell>
-            <TableCell><strong>Başlangıç Tarihi</strong></TableCell>
-            <TableCell><strong>Bitiş Tarihi</strong></TableCell>
-            <TableCell align="right"><strong>İşlem</strong></TableCell>
+            <TableCell>
+              <strong>Döngü Numarası</strong>
+            </TableCell>
+            <TableCell>
+              <strong>Görev</strong>
+            </TableCell>
+            <TableCell>
+              <strong>Başlangıç Tarihi</strong>
+            </TableCell>
+            <TableCell>
+              <strong>Bitiş Tarihi</strong>
+            </TableCell>
+            <TableCell align="right">
+              <strong>İşlem</strong>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

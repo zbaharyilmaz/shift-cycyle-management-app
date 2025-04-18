@@ -4,9 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { TextField, Box, Button, MenuItem } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
 import { useCycles } from "../../hooks/useCycles";
-import { cleanFieldResponse } from "@mui/x-date-pickers/internals";
 
-const jobOptions = [
+
+const jobs = [
   "Üretim Elemanı",
   "Bakım Elemanı",
   "Kalite Kontrol Elemanı",
@@ -56,6 +56,7 @@ const CycleForm = () => {
         flexDirection: "column",
         gap: 3,
         width: "100%",
+        maxWidth:"600px",
       }}
     >
       <TextField
@@ -77,9 +78,9 @@ const CycleForm = () => {
         fullWidth
       >
         <MenuItem value="">Seçiniz</MenuItem>
-        {jobOptions.map((option) => (
-          <MenuItem key={option} value={option}>
-            {option}
+        {jobs.map((job) => (
+          <MenuItem key={job} value={job}>
+            {job}
           </MenuItem>
         ))}
       </TextField>
@@ -126,6 +127,17 @@ const CycleForm = () => {
         type="submit"
         variant="contained"
         disabled={addCycleMutation.isLoading}
+        sx={{
+          backgroundColor: "primary.main",
+          width: "20%",
+          margin: "0 auto",
+          color: "white",
+          "&:hover": {
+            backgroundColor: "secondary.main",
+            color:"primary.main"
+          },
+        }
+        }
       >
         {addCycleMutation.isLoading ? "Kaydediliyor..." : "Kaydet"}
       </Button>

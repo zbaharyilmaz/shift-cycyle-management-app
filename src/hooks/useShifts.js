@@ -1,4 +1,4 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQueryClient, useQuery, useMutation } from "@tanstack/react-query";
 import { toastError, toastSuccess } from "../lib/toast";
 import {
   createShift,
@@ -17,7 +17,7 @@ export const useShifts = () => {
     queryKey: ["shifts"],
     queryFn: getShifts,
   });
-  const createShiftMutation = useMutation({
+  const addShiftMutation = useMutation({
     mutationFn: createShift,
     onSuccess: () => {
       toastSuccess("Vardiya eklendi.");
@@ -39,19 +39,20 @@ export const useShifts = () => {
   });
   const deleteShiftMutation = useMutation({
     mutationFn: deleteShift,
-    onSuccesss: () => {
-      toastSuccess("Vardiya silindi");
+    onSuccess: () => {
+      toast.success("Vardiya başarıyla silindi.");
       queryClient.invalidateQueries(["shifts"]);
     },
+    onError: () => {
+      toast.error("Vardiya silinirken bir hata oluştu.");
+    },
   });
-  return(
-    {
-        shifts,
-        isLoading,
-        isError,
-        createShiftMutation,
-        updateShiftMutation,
-        deleteShiftMutation,    
-    }
-  )
+  return {
+    shifts,
+    isLoading,
+    isError,
+    addShiftMutation,
+    updateShiftMutation,
+    deleteShiftMutation,
+  };
 };
