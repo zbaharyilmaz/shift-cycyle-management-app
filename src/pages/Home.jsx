@@ -21,7 +21,7 @@ const Home = () => {
           borderRadius: 3,
         }}
       >
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h3" gutterBottom>
           Hoş Geldiniz 💼
         </Typography>
         <Typography variant="body1" gutterBottom>

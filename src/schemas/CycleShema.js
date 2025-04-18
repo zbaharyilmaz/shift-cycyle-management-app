@@ -1,11 +1,14 @@
 import { z } from "zod";
+import dayjs from "dayjs";
 
 export const cycleSchema = z.object({
   cycleNumber: z
-    .number()
-    .min(1, "Döngü numarası 1'den küçük olamaz")
-    .max(10, "Döngü numarası 10'dan büyük olamaz")
-    .int("Döngü numarası tam sayı olmalıdır"),
+  .string()
+  .regex(/^[1-9]$|^10$/, "Döngü numarası 1 ile 10 arasında olmalıdır")
+  .transform((val) => parseInt(val, 10)) 
+  .refine((val) => val >= 1 && val <= 10, {
+    message: "Döngü numarası 1 ile 10 arasında olmalıdır",
+  }),
   job: z
     .string()
     .nonempty("Görev alanı boş olamaz")
@@ -16,18 +19,25 @@ export const cycleSchema = z.object({
         ),
       { message: "Geçerli iş unvanı seçin" }
     ),
-  startDate: z.date().refine((date) => date >= new Date(), {
-    message: "Başlangıç tarihi bugünden önce olamaz",
-  }),
-  endDate: z.date().refine(
-    (date, ctx) => {
-      if (date < ctx.parent.startDate) {
-        return false;
-      }
-      return true;
-    },
-    {
-      message: "Bitiş tarihi başlangıç tarihinden önce olamaz",
+    startDate: z
+    .custom((val) => dayjs.isDayjs(val) && val.isValid(), {
+      message: "Geçerli bir tarih giriniz",
+    }),
+    endDate: z
+      .custom((val) => dayjs.isDayjs(val) && val.isValid(), {
+        message: "Geçerli bir bitiş tarihi giriniz",
+      }),
+  })
+  .superRefine((data, ctx) => {
+    if (
+      dayjs.isDayjs(data.startDate) &&
+      dayjs.isDayjs(data.endDate) &&
+      data.endDate.isBefore(data.startDate)
+    ) {
+      ctx.addIssue({
+        path: ["endDate"],
+        code: z.ZodIssueCode.custom,
+        message: "Bitiş tarihi başlangıç tarihinden önce olamaz",
+      });
     }
-  ),
-});
+  });

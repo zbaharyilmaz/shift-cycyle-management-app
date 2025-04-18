@@ -12,6 +12,8 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { ToastContainer } from 'react-toastify'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
 import {theme} from './styles/theme.js'
+import { LocalizationProvider } from '@mui/x-date-pickers'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -19,8 +21,10 @@ createRoot(document.getElementById('root')).render(
       <ToastContainer />
       <ErrorBoundary>
         <ThemeProvider theme={theme}>
+        <LocalizationProvider dateAdapter={AdapterDayjs}> 
           <CssBaseline />
           <App />
+          </LocalizationProvider>
         </ThemeProvider>
       </ErrorBoundary>
       <ReactQueryDevtools initialIsOpen={false} />

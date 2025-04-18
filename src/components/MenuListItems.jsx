@@ -7,8 +7,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Box } from "@mui/material";
 import { btnStyle, selectedStyle } from "../styles/buttonStyles";
 
-const icon = (name) => `/assets/navbar/${name}.svg`;
-
 const links = [
   {
     title: "ANASAYFA",
@@ -28,11 +26,13 @@ const MenuListItems = () => {
   const navigate = useNavigate();
   const location = useLocation();
   return (
-    <Box sx={{ bgcolor: "customColors.color2", height: "100vh" , color:"white"}}>
+    <Box
+      sx={{ bgcolor: "primary.main", height: "100vh" }}
+    >
       <Toolbar />
-      <List >
+      <List>
         {links.map((item, index) => (
-          <ListItem key={item.title} >
+          <ListItem key={item.title}>
             <ListItemButton
               onClick={() => navigate(item.url)}
               sx={item.url === location.pathname ? selectedStyle : btnStyle}
@@ -47,4 +47,3 @@ const MenuListItems = () => {
 };
 
 export default MenuListItems;
-

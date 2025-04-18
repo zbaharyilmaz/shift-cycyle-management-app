@@ -3,18 +3,16 @@ import { createTheme } from "@mui/material/styles";
 export const theme = createTheme({
     palette: {
       primary: {
-        main: "#0b4c65",
+        main: "#593954"
       },
       secondary: {
-        main: "#02735e",
+        main: "#EBC857",
         second: "#f4f0da",
       },
       customColors: {
-        color1: "#593954",  
-        color2: "#013440",  
-        color3: "#026873",  
-        color4: "#ffffff",
-        color5: "#dd1705", 
+        color1: "#dd1705",
+        color2: "#FFD700",  
+        color3: "#8B4513",  
       },
     },
     typography: {

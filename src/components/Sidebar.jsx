@@ -1,8 +1,5 @@
-// src/components/Sidebar.jsx
-
-import React from "react";
 import { Drawer, Box } from "@mui/material";
-import MenuListItems from "./MenuListItems"; // Menü bileşenin varsa
+import MenuListItems from "./MenuListItems";
 
 const drawerWidth = 240;
 
