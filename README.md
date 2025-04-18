@@ -4,29 +4,24 @@
 
 **ShiftCycle Management App** is a modern frontend application designed to efficiently manage shift and cycle operations. With its user-friendly interface and robust tech stack, it enhances operational productivity with ease.
 
----
-
-👉 **Live Demo:** []
+👉 **Live Demo:** [https://shift-cycyle-management-app.vercel.app/]
 
 ### Demo
 
-![Project Demo]()
+![Project Demo](/public/shiftcycleapp.gif)
 
 ## Features
 
 - Add & manage shift and cycle entries
-- View, update, and delete records
+- View and delete records
 - Form validation (Zod + React Hook Form)
 - Real-time toast notifications (React Toastify)
 - API operations with Axios and TanStack React Query
 - Sleek UI built with Material UI
 
----
-
 ## Tech Stack
 
 - **React**: `^19.0.0`
-- **React DOM**: `^19.0.0`
 - **React Router DOM**: `^7.5.1`
 - **React Hook Form**: `^7.55.0`
 - **Zod**: `^3.24.3`
@@ -70,8 +65,8 @@ src
 │   ├── Home.jsx
 │   └── ShiftsPage.jsx
 ├── schemas
-│   ├── cycleSchema.js
-│   └── shiftSchema.js
+│   ├── SchemaCycles.jsx
+│   └── SchemaShifts.jsx
 ├── services
 │   ├── CycleService.js
 │   └── ShiftService.js

@@ -28,7 +28,7 @@ export const useShifts = () => {
     },
   });
   const updateShiftMutation = useMutation({
-    mutationFn: ({ id, data }) => updateShift(IdleDeadline, data),
+    mutationFn: ({ id, data }) => updateShift(id, data),
     onSuccess: () => {
       toastSuccess("Vardiya güncellendi.");
       queryClient.invalidateQueries(["shifts"]);
@@ -40,11 +40,11 @@ export const useShifts = () => {
   const deleteShiftMutation = useMutation({
     mutationFn: deleteShift,
     onSuccess: () => {
-      toast.success("Vardiya başarıyla silindi.");
+      toastSuccess("Vardiya başarıyla silindi.");
       queryClient.invalidateQueries(["shifts"]);
     },
     onError: () => {
-      toast.error("Vardiya silinirken bir hata oluştu.");
+      toastError("Vardiya silinirken bir hata oluştu.");
     },
   });
   return {

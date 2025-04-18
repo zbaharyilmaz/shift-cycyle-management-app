@@ -1,4 +1,5 @@
 import { Box, Paper, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -28,12 +29,26 @@ const Home = () => {
           Bu uygulama, çalışan vardiya/döngü yönetimi için geliştirilmiştir.
         </Typography>
         <Typography variant="body1" gutterBottom>
-          Başlamak için yan menüden bir kategori seçin ve veri eklemeye
-          başlayın.
-        </Typography>
-        <Typography variant="body1" gutterBottom>
-          Çalışanlarınızın vardiya döngülerini ve programlarını yönetmek artık
-          daha kolay!
+          <Link
+            to="/cycles"
+            style={{
+              textDecoration: "none",
+              color: "purple",
+              fontWeight: "bold",
+              marginRight: 4,
+            }}
+          >
+            Döngüler
+          </Link>{" "}
+          ve <Link to="/shifts"
+           style={{
+            textDecoration: "none",
+            color: "purple",
+            fontWeight: "bold",
+            marginRight: 4,
+          }}
+          >Vardiyalar</Link> bölümlerinden çalışanlarınızın
+          vardiya döngülerini ve programlarını kolayca yönetebilirsiniz.
         </Typography>
       </Paper>
     </Box>
