@@ -29,6 +29,17 @@ const Home = () => {
           Bu uygulama, çalışan vardiya/döngü yönetimi için geliştirilmiştir.
         </Typography>
         <Typography variant="body1" gutterBottom>
+          <Link to="/shifts"
+           style={{
+            textDecoration: "none",
+            color: "purple",
+            fontWeight: "bold",
+            marginRight: 4,
+          }}
+          >Vardiyalar</Link> 
+
+          ve
+          {" "}
           <Link
             to="/cycles"
             style={{
@@ -39,15 +50,8 @@ const Home = () => {
             }}
           >
             Döngüler
-          </Link>{" "}
-          ve <Link to="/shifts"
-           style={{
-            textDecoration: "none",
-            color: "purple",
-            fontWeight: "bold",
-            marginRight: 4,
-          }}
-          >Vardiyalar</Link> bölümlerinden çalışanlarınızın
+          </Link>
+          bölümlerinden çalışanlarınızın
           vardiya döngülerini ve programlarını kolayca yönetebilirsiniz.
         </Typography>
       </Paper>

@@ -13,12 +13,12 @@ const links = [
     url: "/",
   },
   {
-    title: "DÖNGÜLER",
-    url: "/cycles",
-  },
-  {
     title: "VARDİYALAR",
     url: "/shifts",
+  },
+  {
+    title: "DÖNGÜLER",
+    url: "/cycles",
   },
 ];
 
