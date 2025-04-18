@@ -1,8 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { shiftSchema } from "../../schemas/shiftSchema";
 import { useShifts } from "../../hooks/useShifts";
 import { Controller, useForm } from "react-hook-form";
 import { TextField, Box, Button, MenuItem } from "@mui/material";
+import {SchemaShifts} from "../../schemas/SchemaShifts"
 
 const jobOptions = [
   "İşçi",
@@ -24,7 +24,7 @@ const ShiftForm = () => {
     formState: { errors },
     reset,
   } = useForm({
-    resolver: zodResolver(shiftSchema),
+    resolver: zodResolver(SchemaShifts),
     defaultValues: {
       shiftNumber: "",
       job: "",

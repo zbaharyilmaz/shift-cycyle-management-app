@@ -1,15 +1,21 @@
-import { cycleSchema } from "../../schemas/cycleSchema";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { TextField, Box, Button, MenuItem } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
 import { useCycles } from "../../hooks/useCycles";
-
+import { SchemaCycles } from "../../schemas/SchemaCycles";
 
 const jobs = [
-  "Üretim Elemanı",
-  "Bakım Elemanı",
-  "Kalite Kontrol Elemanı",
+  "İşçi",
+  "Mühendis",
+  "Tekniker",
+  "Yönetici",
+  "Asistan",
+  "Analist",
+  "Danışman",
+  "Uzman",
+  "Araştırmacı",
+  "Geliştirici",
 ];
 
 const CycleForm = () => {
@@ -20,7 +26,7 @@ const CycleForm = () => {
     formState: { errors },
     reset,
   } = useForm({
-    resolver: zodResolver(cycleSchema),
+    resolver: zodResolver(SchemaCycles),
     defaultValues: {
       cycleNumber: "",
       job: "",
@@ -37,7 +43,7 @@ const CycleForm = () => {
       endDate: data.endDate?.toISOString(),
     };
     addCycleMutation.mutate(formattedData, {
-      onSuccess: () => 
+      onSuccess: () =>
         reset({
           cycleNumber: "",
           job: "",
@@ -56,7 +62,7 @@ const CycleForm = () => {
         flexDirection: "column",
         gap: 3,
         width: "100%",
-        maxWidth:"600px",
+        maxWidth: "600px",
       }}
     >
       <TextField
@@ -134,10 +140,9 @@ const CycleForm = () => {
           color: "white",
           "&:hover": {
             backgroundColor: "secondary.main",
-            color:"primary.main"
+            color: "primary.main",
           },
-        }
-        }
+        }}
       >
         {addCycleMutation.isLoading ? "Kaydediliyor..." : "Kaydet"}
       </Button>

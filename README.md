@@ -1,4 +1,5 @@
 # 💼 ShiftCycle Management App
+
 ## Effortlessly manage shifts and cycles!
 
 **ShiftCycle Management App** is a modern frontend application designed to efficiently manage shift and cycle operations. With its user-friendly interface and robust tech stack, it enhances operational productivity with ease.
@@ -13,12 +14,12 @@
 
 ## Features
 
--  Add & manage shift and cycle entries  
--  View, update, and delete records  
--  Form validation (Zod + React Hook Form)  
--  Real-time toast notifications (React Toastify)  
--  API operations with Axios and TanStack React Query  
--  Sleek UI built with Material UI  
+- Add & manage shift and cycle entries
+- View, update, and delete records
+- Form validation (Zod + React Hook Form)
+- Real-time toast notifications (React Toastify)
+- API operations with Axios and TanStack React Query
+- Sleek UI built with Material UI
 
 ---
 
@@ -78,6 +79,7 @@ src
     ├── buttonStyles.js
     └── theme.js
 ```
+
 1. **Clone the Repository and Navigate to the Project Directory:**
 
    ```bash
@@ -91,16 +93,19 @@ src
    pnpm install
    ```
 3. **Set up API**
+
 - Create an .env file in your project root and add the following values.
-   ```bash
-    VITE_API_BASE_URL=https://your-mockapi-url.com/
+  ```bash
+   VITE_API_BASE_URL=https://your-mockapi-url.com/
+  ```
+
 4. **Run the Development Server:**
 
    ```bash
     pnpm dev
    ```
 
-6. **Open the App:**
+5. **Open the App:**
 
 - Visit http://localhost:3000 in your browser to view the app.
 
