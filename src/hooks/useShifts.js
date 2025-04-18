@@ -5,7 +5,7 @@ import {
   deleteShift,
   getShifts,
   updateShift,
-} from "../services/shiftService";
+} from "../services/ShiftService.js";
 
 export const useShifts = () => {
   const queryClient = useQueryClient();
