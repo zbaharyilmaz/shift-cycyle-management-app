@@ -2,10 +2,10 @@ import { useQueryClient, useQuery, useMutation } from "@tanstack/react-query";
 import { toastError, toastSuccess } from "../lib/toast";
 import {
   createShift,
-  deleteShift,
-  getShifts,
   updateShift,
-} from "../services/ShiftService.js";
+  getShifts,
+  deleteShift,
+} from "../services/ShiftService";
 
 export const useShifts = () => {
   const queryClient = useQueryClient();

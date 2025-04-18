@@ -16,9 +16,16 @@ export const SchemaCycles = z
       .refine(
         (val) =>
           [
-            "Üretim Elemanı",
-            "Bakım Elemanı",
-            "Kalite Kontrol Elemanı",
+            "İşçi",
+            "Mühendis",
+            "Tekniker",
+            "Yönetici",
+            "Asistan",
+            "Analist",
+            "Danışman",
+            "Uzman",
+            "Araştırmacı",
+            "Geliştirici",
           ].includes(val),
         { message: "Geçerli iş unvanı seçin" }
       ),

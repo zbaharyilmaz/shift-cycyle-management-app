@@ -5,7 +5,7 @@ import {
   deleteCycle,
   getCycles,
   updateCycle,
-} from "../services/cycleService";
+} from "../services/CycleService";
 
 export const useCycles = () => {
   const queryClient = useQueryClient();
