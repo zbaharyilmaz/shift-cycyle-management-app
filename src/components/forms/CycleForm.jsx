@@ -1,6 +1,9 @@
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { TextField, Box, Button, MenuItem } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
 import { DatePicker } from "@mui/x-date-pickers";
 import { useCycles } from "../../hooks/useCycles";
 import { SchemaCycles } from "../../schemas/SchemaCycles";
@@ -51,7 +54,6 @@ const CycleForm = () => {
           endDate: null,
         }),
     });
-    console.log(formattedData);
   };
   return (
     <Box

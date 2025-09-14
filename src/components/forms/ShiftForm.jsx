@@ -1,7 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useShifts } from "../../hooks/useShifts";
 import { Controller, useForm } from "react-hook-form";
-import { TextField, Box, Button, MenuItem } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
 import {SchemaShifts} from "../../schemas/SchemaShifts"
 
 const jobOptions = [

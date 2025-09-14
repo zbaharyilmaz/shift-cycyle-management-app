@@ -9,7 +9,11 @@ import {
 
 export const useCycles = () => {
   const queryClient = useQueryClient();
-  const { data: cycles, isLoading, isError } = useQuery({
+  const {
+    data: cycles,
+    isLoading,
+    isError,
+  } = useQuery({
     queryKey: ["cycles"],
     queryFn: getCycles,
   });
@@ -20,7 +24,7 @@ export const useCycles = () => {
       queryClient.invalidateQueries(["cycles"]);
     },
     onError: () => {
-      toastError("Döngü eklenirken hata oluştu.") ;
+      toastError("Döngü eklenirken hata oluştu.");
     },
   });
   const deleteCycleMutation = useMutation({
@@ -43,14 +47,12 @@ export const useCycles = () => {
       toastError("Döngü güncellenirken hata oluştu.");
     },
   });
-  return(
-    {
-        cycles,
-        isLoading,
-        isError,
-        addCycleMutation,
-        updateCycleMutation,
-        deleteCycleMutation,
-    }
-  )
+  return {
+    cycles,
+    isLoading,
+    isError,
+    addCycleMutation,
+    updateCycleMutation,
+    deleteCycleMutation,
+  };
 };
