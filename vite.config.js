@@ -1,20 +1,36 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    visualizer({
+      filename: "dist/stats.html",
+      open: true,
+      gzipSize: true,
+      brotliSize: true,
+    }),
+  ],
   build: {
     rollupOptions: {
       output: {
         manualChunks: {
           // Vendor chunks
-          'react-vendor': ['react', 'react-dom'],
-          'router-vendor': ['react-router-dom'],
-          'mui-vendor': ['@mui/material', '@mui/icons-material', '@mui/x-date-pickers'],
-          'query-vendor': ['@tanstack/react-query', '@tanstack/react-query-devtools'],
-          'form-vendor': ['react-hook-form', '@hookform/resolvers', 'zod'],
-          'utils-vendor': ['axios', 'dayjs', 'react-toastify', 'react-icons'],
-          'emotion-vendor': ['@emotion/react', '@emotion/styled'],
+          "react-vendor": ["react", "react-dom"],
+          "router-vendor": ["react-router-dom"],
+          "mui-vendor": [
+            "@mui/material",
+            "@mui/icons-material",
+            "@mui/x-date-pickers",
+          ],
+          "query-vendor": [
+            "@tanstack/react-query",
+            "@tanstack/react-query-devtools",
+          ],
+          "form-vendor": ["react-hook-form", "@hookform/resolvers", "zod"],
+          "utils-vendor": ["axios", "dayjs", "react-toastify", "react-icons"],
+          "emotion-vendor": ["@emotion/react", "@emotion/styled"],
         },
       },
     },
@@ -26,15 +42,15 @@ export default defineConfig({
   // Optimize dependencies
   optimizeDeps: {
     include: [
-      'react',
-      'react-dom',
-      'react-router-dom',
-      '@mui/material',
-      '@tanstack/react-query',
-      'react-hook-form',
-      'zod',
-      'axios',
-      'dayjs',
+      "react",
+      "react-dom",
+      "react-router-dom",
+      "@mui/material",
+      "@tanstack/react-query",
+      "react-hook-form",
+      "zod",
+      "axios",
+      "dayjs",
     ],
   },
-})
+});

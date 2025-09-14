@@ -4,10 +4,12 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
 
-// Lazy load pages for better performance
+// Lazy load pages for better performance with preloading
 const Home = lazy(() => import("./pages/Home"));
 const ShiftsPage = lazy(() => import("./pages/ShiftsPage"));
 const CyclesPage = lazy(() => import("./pages/CyclesPage"));
+
+// Preload functionality can be added later if needed
 
 // Loading component for Suspense fallback
 const LoadingSpinner = () => (
@@ -30,9 +32,9 @@ function App() {
       <Sidebar />
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/shifts" element={<ShiftsPage />}/>
-          <Route path="/cycles" element={<CyclesPage />}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/shifts" element={<ShiftsPage />} />
+          <Route path="/cycles" element={<CyclesPage />} />
         </Routes>
       </Suspense>
     </Router>
